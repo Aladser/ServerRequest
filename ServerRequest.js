@@ -25,7 +25,7 @@ class ServerRequest {
 
         switch (response.status) {
             case 200:
-                let data = await response.json();
+                let data = await response.text();
                 processFunc(data);
                 break;
             case 419:
