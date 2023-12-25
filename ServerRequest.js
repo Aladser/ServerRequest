@@ -1,14 +1,16 @@
 /** Асинхронный запрос на сервер из Javascript*/
 class ServerRequest {
-    /** выполнить запрос на сервер
+    /**
+     * Выполнить запрос на сервер
      * 
      * @param {*} URL адрес запроса
      * @param {*} processFunc функция обработки успешного запроса
      * @param {*} method тип запроса
      * @param {*} data данные
-     * @param {*} headers заголовки
+     * @param {*} errorPrg поле ошибок
+     * @returns return processFunc
      */
-    static async execute(URL, processFunc, method, errorPrg = null, data = null, headers = null) {
+    static async execute(URL, processFunc, method, data = null, errorPrg = null, headers = null) {
         let response;
         if (headers) {
             response = await fetch(URL, {
@@ -36,6 +38,8 @@ class ServerRequest {
             default:
                 if (errorPrg) {
                     errorPrg.textContent = "Серверная ошибка. Подробности в консоли браузера";
+                } else {
+                    alert("Серверная ошибка. Подробности в консоли браузера");
                 }
                 console.log(response.text().then(data => console.log(data)));
         }
