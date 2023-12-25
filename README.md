@@ -9,9 +9,9 @@ ServerRequest.execute(
     process,
     // тип запроса
     "post",
+    // данные для отправки
+    data,
     // элемент для вывода информации
     this.msgElement,
-    // данные для отправки
-    data
 );
 ```
