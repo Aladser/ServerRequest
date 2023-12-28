@@ -1,16 +1,14 @@
-/** Асинхронный запрос на сервер из Javascript*/
+// fetch-запрос на сервер
 class ServerRequest {
-    /**
-     * Выполнить запрос на сервер
+    /** выполнить запрос на сервер
      * 
      * @param {*} URL адрес запроса
-     * @param {*} processFunc функция обработки успешного запроса
+     * @param {*} processFunc функция успешного запроса
      * @param {*} method тип запроса
      * @param {*} data данные
-     * @param {*} errorPrg поле ошибок
-     * @returns return processFunc
+     * @param {*} headers заголовки
      */
-    static async execute(URL, processFunc, method, data = null, errorPrg = null, headers = null) {
+    static async execute(URL, processFunc, method, errorPrg = null, data = null, headers = null) {
         let response;
         if (headers) {
             response = await fetch(URL, {
@@ -30,16 +28,14 @@ class ServerRequest {
                 let data = await response.text();
                 return processFunc(data);
             case 419:
-                window.open("/419", "_self");
+                window.open("/error_419", "_self");
                 break;
             case 500:
-                window.open("/500", "_self");
+                window.open("/access_denied", "_self");
                 break;
             default:
                 if (errorPrg) {
                     errorPrg.textContent = "Серверная ошибка. Подробности в консоли браузера";
-                } else {
-                    alert("Серверная ошибка. Подробности в консоли браузера");
                 }
                 console.log(response.text().then(data => console.log(data)));
         }
