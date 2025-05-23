@@ -14,4 +14,7 @@ ServerRequest.execute(
     // данные запроса
     formData
 );
+
+let data = JSON.stringify({"product_id": productDOM.id.substring(14)});
+ServerRequest.execute('/index.php?option=com_catalog&task=remove_product_basket', process, 'post', data);
 ```
