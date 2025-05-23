@@ -8,7 +8,7 @@ class ServerRequest {
      * @param {*} data данные
      * @param {*} headers заголовки
      */
-    static async execute(URL, processFunc, method, errorPrg = null, data = null, headers = null) {
+    static async execute(URL, processFunc, method = "get", data = null, headers = null, errorPrg = null) {
         let response;
         if (headers) {
             response = await fetch(URL, {
@@ -37,6 +37,7 @@ class ServerRequest {
                 if (errorPrg) {
                     errorPrg.textContent = "Серверная ошибка. Подробности в консоли браузера";
                 }
+                console.log(`Статус ответа: ${response.status}`);
                 console.log(response.text().then(data => console.log(data)));
         }
     }
