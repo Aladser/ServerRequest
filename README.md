@@ -4,7 +4,7 @@
 // ---запрос на сервер---
 ServerRequest.execute(
     // адрес
-    this.URL+'/store',
+    '/car/add',
     // функция обработки ответа от сервера
     process,
     // тип запроса
