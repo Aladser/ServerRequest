@@ -9,10 +9,10 @@ ServerRequest.execute(
     process,
     // тип запроса
     "post",
-    // элемент для вывода информации
-    this.msgElement,
     // данные запроса
-    formData
+    formData,
+    // элемент для вывода информации
+    this.msgElement
 );
 
 let data = JSON.stringify({"product_id": productDOM.id.substring(14)});
