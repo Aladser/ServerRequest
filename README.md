@@ -15,6 +15,6 @@ ServerRequest.execute(
     this.msgElement
 );
 
-let data = JSON.stringify({"product_id": productDOM.id.substring(14)});
+let data = JSON.stringify({"product_id": productDOM.id});
 ServerRequest.execute('/car/add', process, 'post', data);
 ```
