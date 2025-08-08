@@ -18,3 +18,8 @@ ServerRequest.execute(
 let data = JSON.stringify({"product_id": productDOM.id});
 ServerRequest.execute('/car/add', process, 'post', data);
 ```
+
+### Отправка формы
+```
+ServerRequest.execute(null, process, 'post', formData);
+```
