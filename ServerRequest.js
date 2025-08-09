@@ -33,9 +33,6 @@ class ServerRequest {
                 window.open("/access_denied", "_self");
                 break;
             default:
-                if (errorPrg) {
-                    errorPrg.textContent = "Серверная ошибка. Подробности в консоли браузера";
-                }
                 console.log(`Статус ответа: ${response.status}`);
                 console.log(response.text().then(data => console.log(data)));
         }
