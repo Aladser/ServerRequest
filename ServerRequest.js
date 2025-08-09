@@ -27,12 +27,6 @@ class ServerRequest {
             case 200:
                 let data = await response.text();
                 return processFunc(data);
-            case 419:
-                window.open("/error_419", "_self");
-                break;
-            case 500:
-                window.open("/access_denied", "_self");
-                break;
             default:
                 console.log(`Статус ответа: ${response.status}`);
                 console.log(response.text().then(data => console.log(data)));
