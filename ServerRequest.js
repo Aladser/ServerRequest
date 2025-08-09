@@ -6,9 +6,8 @@ class ServerRequest {
      * @param {*} processFunc функция успешного запроса
      * @param {*} method тип запроса
      * @param {*} data данные
-     * @param {*} headers заголовки
      */
-    static async execute(URL, processFunc, method = "get", data = null, headers = null, errorPrg = null) {
+    static async execute(URL, processFunc, method = "get", data = null, headers = null) {
         let response;
         if (headers) {
             response = await fetch(URL, {
