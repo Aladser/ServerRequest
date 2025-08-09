@@ -14,7 +14,9 @@ ServerRequest.execute(
     // элемент для вывода информации
     this.msgElement
 );
-
+```
+### Отправка собранных в JS данных
+```
 let data = JSON.stringify({"product_id": productDOM.id});
 ServerRequest.execute('/car/add', process, 'post', data);
 ```
