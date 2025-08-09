@@ -1,5 +1,4 @@
 ## Пример использования
-
 ```
 // ---запрос на сервер---
 ServerRequest.execute(
@@ -15,6 +14,15 @@ ServerRequest.execute(
     this.msgElement
 );
 ```
+
+### Пример process функции
+```
+let process = function(resp) {
+    let respData = JSON.parse(resp);
+    console.log(respData);
+};
+```
+
 ### Отправка собранных в JS данных
 ```
 let data = JSON.stringify({"product_id": productDOM.id});
