@@ -28,6 +28,7 @@ class ServerRequest {
                 let data = await response.text();
                 return processFunc(data);
             default:
+                alert(`Ошибка ${response.status}`);
                 console.log(`Статус ответа: ${response.status}`);
                 console.log(response.text().then(data => console.log(data)));
         }
