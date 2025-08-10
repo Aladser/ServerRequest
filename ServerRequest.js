@@ -23,14 +23,13 @@ class ServerRequest {
             });
         }
 
-        switch (response.status) {
-            case 200:
-                let data = await response.text();
-                return processFunc(data);
-            default:
-                alert(`Ошибка ${response.status}`);
-                console.log(`Статус ответа: ${response.status}`);
-                console.log(response.text().then(data => console.log(data)));
+        if(response.status >= 200 && response.status < 300) {
+            let data = await response.text();
+            return processFunc(data);
+        } else {
+            alert(`Ошибка ${response.status}`);
+            console.log(`Статус ответа: ${response.status}`);
+            console.log(response.text().then(data => console.log(data)));
         }
     }
 }
